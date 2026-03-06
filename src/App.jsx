@@ -1,8 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import {
   MapPin,
-  Calendar,
-  Clock,
   Plane,
   Mountain,
   Camera,
@@ -60,295 +58,295 @@ export default function App() {
 
   const itinerary = [
     {
-      date: '22/08',
-      title: 'Chegada em Cusco',
+      date: '08/22',
+      title: 'Arrival in Cusco',
       city: 'Cusco',
-      desc: 'Aclimatação, primeiros passeios pelo centro histórico e contato inicial com a atmosfera andina.',
-      highlight: 'História, altitude e charme colonial.',
+      desc: 'Acclimatization, first walks through the historic center, and your first contact with the Andean atmosphere.',
+      highlight: 'History, altitude, and colonial charm.',
       icon: MapPin,
-      tags: ['Aclimatação', 'Centro histórico', 'Cultura'],
+      tags: ['Acclimatization', 'Historic center', 'Culture'],
     },
     {
-      date: '23/08',
-      title: 'Explorando Cusco',
+      date: '08/23',
+      title: 'Exploring Cusco',
       city: 'Cusco',
-      desc: 'Dia para mercados, sítios arqueológicos, igrejas, ruas de pedra e gastronomia local.',
-      highlight: 'O berço da história peruana.',
+      desc: 'A day for markets, archaeological sites, churches, stone streets, and local cuisine.',
+      highlight: 'The cradle of Peruvian history.',
       icon: Camera,
-      tags: ['Arqueologia', 'Mercados', 'Gastronomia'],
+      tags: ['Archaeology', 'Markets', 'Food'],
     },
     {
-      date: '24/08',
-      title: 'Cusco e Preparativos',
+      date: '08/24',
+      title: 'Cusco and Preparation Day',
       city: 'Cusco',
-      desc: 'Último dia de adaptação, descanso, organização da mochila e preparação para a trilha.',
-      highlight: 'Respirar, ajustar o ritmo e preparar o corpo.',
+      desc: 'Final adaptation day, rest, organizing your backpack, and getting ready for the trail.',
+      highlight: 'Breathe, adjust your pace, and prepare your body.',
       icon: Coffee,
-      tags: ['Descanso', 'Planejamento', 'Pré-trilha'],
+      tags: ['Rest', 'Planning', 'Pre-trek'],
     },
     {
-      date: '25/08',
-      title: 'Trilha Inca, Dia 1',
-      city: 'Andes peruanos',
-      desc: 'Início da jornada de 4 dias por trilhas ancestrais entre montanhas e ruínas incas.',
-      highlight: 'A aventura começa de verdade.',
+      date: '08/25',
+      title: 'Inca Trail, Day 1',
+      city: 'Peruvian Andes',
+      desc: 'Start of a 4-day journey on ancestral paths through mountains and Inca ruins.',
+      highlight: 'The adventure truly begins.',
       icon: Mountain,
-      tags: ['Trekking', 'Andes', 'Aventura'],
+      tags: ['Trekking', 'Andes', 'Adventure'],
     },
     {
-      date: '26/08',
-      title: 'Trilha Inca, Dia 2',
-      city: 'Andes peruanos',
-      desc: 'Trecho mais desafiador da travessia, com altitude, superação e visuais impressionantes.',
-      highlight: 'Força, altitude e paisagens épicas.',
+      date: '08/26',
+      title: 'Inca Trail, Day 2',
+      city: 'Peruvian Andes',
+      desc: 'The most challenging stretch of the crossing: altitude, resilience, and breathtaking views.',
+      highlight: 'Strength, altitude, and epic landscapes.',
       icon: Mountain,
-      tags: ['Altitude', 'Desafio', 'Paisagem'],
+      tags: ['Altitude', 'Challenge', 'Scenery'],
     },
     {
-      date: '27/08',
-      title: 'Trilha Inca, Dia 3',
-      city: 'Andes peruanos',
-      desc: 'Transição entre montanhas, mata e ruínas, vivendo os diferentes microclimas do caminho.',
-      highlight: 'A trilha revela toda a sua diversidade.',
+      date: '08/27',
+      title: 'Inca Trail, Day 3',
+      city: 'Peruvian Andes',
+      desc: 'A transition through mountains, forest, and ruins, experiencing the trail’s different microclimates.',
+      highlight: 'The trail reveals all its diversity.',
       icon: Mountain,
-      tags: ['Ruínas', 'Microclimas', 'Natureza'],
+      tags: ['Ruins', 'Microclimates', 'Nature'],
     },
     {
-      date: '28/08',
-      title: 'Machu Picchu e Vale Sagrado',
+      date: '08/28',
+      title: 'Machu Picchu and Sacred Valley',
       city: 'Machu Picchu / Ollantaytambo',
-      desc: 'Chegada ao lugar mais icônico da viagem, seguida de descida para o Vale Sagrado.',
-      highlight: 'O grande símbolo do Peru.',
+      desc: 'Arrival at the most iconic place of the trip, followed by descent to the Sacred Valley.',
+      highlight: 'Peru’s greatest symbol.',
       icon: Landmark,
-      tags: ['Machu Picchu', 'Ícone', 'Patrimônio'],
+      tags: ['Machu Picchu', 'Iconic', 'Heritage'],
     },
     {
-      date: '29/08',
-      title: 'Vale Sagrado',
-      city: 'Ollantaytambo e arredores',
-      desc: 'Dia de imersão em vilarejos incas, feiras, artesanato, cultura local e experiências mais raiz.',
-      highlight: 'A alma viva do Peru andino.',
+      date: '08/29',
+      title: 'Sacred Valley',
+      city: 'Ollantaytambo and surroundings',
+      desc: 'A day immersed in Inca villages, local markets, handicrafts, culture, and authentic experiences.',
+      highlight: 'The living soul of Andean Peru.',
       icon: Users,
-      tags: ['Vilarejos', 'Feirinhas', 'Cultura local'],
+      tags: ['Villages', 'Markets', 'Local culture'],
     },
     {
-      date: '30/08',
-      title: 'Lagoa Humantay',
-      city: 'Região de Cusco',
-      desc: 'Passeio de natureza e altitude para uma lagoa de cor intensa cercada por montanhas.',
-      highlight: 'Uma das paisagens mais impactantes da rota.',
+      date: '08/30',
+      title: 'Humantay Lake',
+      city: 'Cusco Region',
+      desc: 'A nature and altitude excursion to an intense-blue lake surrounded by mountains.',
+      highlight: 'One of the most striking landscapes of the route.',
       icon: Sun,
-      tags: ['Natureza', 'Altitude', 'Visual'],
+      tags: ['Nature', 'Altitude', 'Views'],
     },
     {
-      date: '31/08',
-      title: 'Ida para Arequipa',
+      date: '08/31',
+      title: 'Travel to Arequipa',
       city: 'Arequipa',
-      desc: 'Deslocamento para a Cidade Branca, famosa por sua arquitetura, cenário vulcânico e vida cultural.',
-      highlight: 'Mudança de ritmo e de paisagem.',
+      desc: 'Transfer to the White City, known for architecture, volcanic scenery, and cultural life.',
+      highlight: 'A complete change of pace and landscape.',
       icon: Train,
-      tags: ['Transporte', 'Cidade Branca', 'Arquitetura'],
+      tags: ['Transport', 'White City', 'Architecture'],
     },
     {
-      date: '01/09',
-      title: 'Descobrindo Arequipa',
+      date: '09/01',
+      title: 'Discovering Arequipa',
       city: 'Arequipa',
-      desc: 'Dia para explorar praças, mosteiros, mirantes e o charme elegante da cidade.',
-      highlight: 'Cultura, pedra vulcânica e beleza urbana.',
+      desc: 'A day to explore plazas, monasteries, viewpoints, and the elegant charm of the city.',
+      highlight: 'Culture, volcanic stone, and urban beauty.',
       icon: Camera,
-      tags: ['Centro histórico', 'Cultura', 'Mirantes'],
+      tags: ['Historic center', 'Culture', 'Viewpoints'],
     },
     {
-      date: '02/09',
-      title: 'Arequipa e Gastronomia',
+      date: '09/02',
+      title: 'Arequipa and Gastronomy',
       city: 'Arequipa',
-      desc: 'Foco nos sabores do sul peruano e nos últimos momentos antes de seguir para Nazca.',
-      highlight: 'Uma pausa deliciosa no roteiro.',
+      desc: 'A focus on southern Peruvian flavors before heading to Nazca.',
+      highlight: 'A delicious pause in the itinerary.',
       icon: Utensils,
-      tags: ['Comida', 'Experiência local', 'Sul do Peru'],
+      tags: ['Food', 'Local experience', 'Southern Peru'],
     },
     {
-      date: '03/09',
-      title: 'Linhas de Nazca e Oásis',
+      date: '09/03',
+      title: 'Nazca Lines and Oasis',
       city: 'Nazca / Huacachina',
-      desc: 'Sobrevoo dos geoglifos de Nazca e sequência da viagem rumo ao deserto e ao oásis.',
-      highlight: 'Mistério arqueológico e mudança total de cenário.',
+      desc: 'Flight over the Nazca geoglyphs, then continue toward the desert oasis.',
+      highlight: 'Archaeological mystery and a dramatic shift in scenery.',
       icon: Plane,
-      tags: ['Sobrevoo', 'Nazca', 'Deserto'],
+      tags: ['Scenic flight', 'Nazca', 'Desert'],
     },
     {
-      date: '04/09',
-      title: 'Huacachina e Ida a Lima',
+      date: '09/04',
+      title: 'Huacachina and Lima Transfer',
       city: 'Huacachina / Lima',
-      desc: 'Dia de buggy, sandboard, dunas e pôr do sol antes do deslocamento para a capital.',
-      highlight: 'Aventura no deserto com clima cinematográfico.',
+      desc: 'Buggy rides, sandboarding, dunes, and sunset before heading to the capital.',
+      highlight: 'Desert adventure with cinematic vibes.',
       icon: Mountain,
-      tags: ['Buggy', 'Sandboard', 'Pôr do sol'],
+      tags: ['Buggy', 'Sandboard', 'Sunset'],
     },
     {
-      date: '05/09',
-      title: 'Chegada em Lima',
+      date: '09/05',
+      title: 'Arrival in Lima',
       city: 'Lima',
-      desc: 'Entrada na fase mais leve da viagem, com bairros charmosos, mar e vida urbana.',
-      highlight: 'As férias das férias.',
+      desc: 'A lighter phase of the trip with charming neighborhoods, sea views, and city life.',
+      highlight: 'The vacation after the adventure.',
       icon: MapPin,
       tags: ['Miraflores', 'Barranco', 'Capital'],
     },
     {
-      date: '06/09',
-      title: 'Lima Gastronômica',
+      date: '09/06',
+      title: 'Gastronomic Lima',
       city: 'Lima',
-      desc: 'Dia para viver a alta gastronomia peruana, explorar cafés, restaurantes e encerrar a viagem em grande estilo.',
-      highlight: 'Sabores que viram memória.',
+      desc: 'Experience top-tier Peruvian cuisine, cafés, and restaurants to end the trip in style.',
+      highlight: 'Flavors that become memories.',
       icon: Heart,
-      tags: ['Alta gastronomia', 'Restaurantes', 'Despedida'],
+      tags: ['Fine dining', 'Restaurants', 'Farewell'],
     },
     {
-      date: '07/09',
-      title: 'Retorno para Casa',
-      city: 'Lima → Brasil',
-      desc: 'Fim da Peru Trip, com bagagens cheias de histórias, fotos e lembranças para a vida toda.',
-      highlight: 'Encerramento de uma jornada épica.',
+      date: '09/07',
+      title: 'Return Home',
+      city: 'Lima → Brazil',
+      desc: 'End of Peru Trip, with bags full of stories, photos, and lifelong memories.',
+      highlight: 'The closing of an epic journey.',
       icon: Plane,
-      tags: ['Retorno', 'Memórias', 'Fim da viagem'],
+      tags: ['Return', 'Memories', 'Trip end'],
     },
   ];
 
   const bourdainSpots = [
     {
-      category: 'Pegadas do Tony',
+      category: 'Tony Footsteps',
       city: 'Lima',
       name: 'Astrid y Gastón',
-      vibe: 'A conexão mais direta com o universo do Bourdain no Peru passa por Gastón Acurio, um dos grandes nomes que ajudaram a projetar a cozinha peruana para o mundo. É um lugar para viver a sofisticação peruana com peso histórico.',
-      why: 'Clássico da alta gastronomia peruana, perfeito para um jantar especial de homenagem ao Anthony.',
+      vibe: 'The strongest link to Bourdain’s Peru goes through Gastón Acurio, one of the chefs who helped project Peruvian cuisine to the world.',
+      why: 'A classic of Peruvian fine dining, perfect for a special tribute dinner to Anthony.',
       link: 'https://astridygaston.com/',
       icon: Utensils,
     },
     {
-      category: 'Pegadas do Tony',
+      category: 'Tony Footsteps',
       city: 'Cusco',
       name: 'Mercado de San Pedro',
-      vibe: 'Mercado vibrante, intenso, local e sem filtro, exatamente o tipo de lugar que conversa com o olhar curioso do Bourdain. Mais do que comer, é sobre sentir o ritmo real da cidade.',
-      why: 'Ótimo para provar ingredientes, ver a rotina local e buscar uma experiência mais crua e autêntica.',
+      vibe: 'Vibrant, intense, local, and unfiltered. Exactly the kind of place that fits Bourdain’s curious eye.',
+      why: 'Great for tasting local ingredients and seeing daily local life up close.',
       link: 'https://www.peru.travel/attractions/san-pedro-market',
       icon: Fish,
     },
     {
-      category: 'Mesma vibe',
+      category: 'Same vibe',
       city: 'Lima',
       name: 'Isolina Taberna Peruana',
-      vibe: 'Tem clima de casa antiga, comida farta, alma de taberna e aquela energia de lugar onde o importante é comer muito bem e beber melhor ainda. Totalmente Bourdain na atitude.',
-      why: 'Ideal para mergulhar na cozinha limeña tradicional sem formalidade excessiva.',
+      vibe: 'Old-house atmosphere, hearty food, tavern soul, and a no-fuss attitude. Very Bourdain in spirit.',
+      why: 'Ideal to dive into classic Lima cuisine without excessive formality.',
       link: 'https://isolina.pe/',
       icon: Flame,
     },
     {
-      category: 'Mesma vibe',
+      category: 'Same vibe',
       city: 'Lima',
       name: 'Maido',
-      vibe: 'Se a ideia é viver a potência contemporânea da gastronomia peruana, Maido entra como parada obrigatória. É refinado, criativo e representa Lima no topo do mundo gastronômico.',
-      why: 'Perfeito para uma noite grande da viagem, com cozinha nikkei de altíssimo nível.',
+      vibe: 'If you want contemporary Peruvian culinary power, Maido is a must-stop.',
+      why: 'Perfect for a big night with top-level Nikkei cuisine.',
       link: 'https://maido.pe/',
       icon: Sparkles,
     },
     {
-      category: 'Mesma vibe',
+      category: 'Same vibe',
       city: 'Lima',
       name: 'Central',
-      vibe: 'Mais do que um restaurante, é quase uma expedição culinária pelos ecossistemas do Peru. Tem o tipo de profundidade territorial e narrativa que certamente conversa com a forma como Bourdain enxergava comida e lugar.',
-      why: 'Experiência para quem quer entender o Peru através dos ingredientes e das altitudes.',
+      vibe: 'More than a restaurant, it feels like a culinary expedition through Peru’s ecosystems.',
+      why: 'For travelers who want to understand Peru through ingredients and altitudes.',
       link: 'https://centralrestaurante.com.pe/en/',
       icon: Landmark,
     },
     {
-      category: 'Mesma vibe',
-      city: 'Moray, Vale Sagrado',
+      category: 'Same vibe',
+      city: 'Moray, Sacred Valley',
       name: 'MIL Centro',
-      vibe: 'Talvez seja o lugar que mais transforma a refeição em território. Em plena região de Moray, ele conecta altitude, comunidade, técnica e ancestralidade andina.',
-      why: 'Combina perfeitamente com o trecho do Vale Sagrado e com a proposta de viver o Peru mais profundamente.',
+      vibe: 'A place where food becomes territory, connecting altitude, community, technique, and Andean ancestry.',
+      why: 'Perfect fit for the Sacred Valley stretch and for a deeper Peru experience.',
       link: 'https://milcentro.pe/en/',
       icon: Mountain,
     },
     {
-      category: 'Mesma vibe',
+      category: 'Same vibe',
       city: 'Cusco',
       name: 'Chicha por Gastón Acurio',
-      vibe: 'Uma forma muito elegante de provar a cozinha regional de Cusco com assinatura de um nome fundamental da gastronomia peruana. Tem raiz, técnica e respeito pelo território.',
-      why: 'Excelente escolha para uma noite forte em Cusco, já entrando no espírito da viagem.',
+      vibe: 'An elegant way to taste regional Cusco cuisine signed by a major Peruvian culinary figure.',
+      why: 'Excellent option for a strong dinner in Cusco.',
       link: 'https://chicha.com.pe/en/cusco/',
       icon: Utensils,
     },
     {
-      category: 'Mesma vibe',
+      category: 'Same vibe',
       city: 'Cusco',
       name: 'Museo del Pisco',
-      vibe: 'Menos restaurante, mais ritual etílico e boêmio. É o tipo de parada que encaixa muito bem em uma noite de viagem com bons drinks, conversa longa e clima de celebração.',
-      why: 'Boa pedida para drinks e para entrar mais fundo no universo do pisco.',
+      vibe: 'Less restaurant, more bohemian ritual. Great for long conversations and celebratory drinks.',
+      why: 'A good call for cocktails and diving into pisco culture.',
       link: 'https://english.museodelpisco.org/',
       icon: Martini,
     },
     {
-      category: 'Mesma vibe',
+      category: 'Same vibe',
       city: 'Arequipa',
       name: 'Picantería La Mundial',
-      vibe: 'Arequipa pede fogo, tradição, panelas pesadas e comida de personalidade. A picantería entrega justamente essa cozinha forte, regional e sem maquiagem.',
-      why: 'Ótimo lugar para viver a alma gastronômica arequipenha em clima mais raiz.',
+      vibe: 'Arequipa asks for fire, tradition, heavy pots, and food with personality.',
+      why: 'Great place to experience the soul of Arequipa cuisine in a more rooted style.',
       link: 'https://picanterialamundial.com.pe/',
       icon: Flame,
     },
   ];
 
   const travelers = [
-    { name: 'Vitor', role: 'Explorador', color: 'from-sky-500 to-blue-600' },
-    { name: 'Carina', role: 'Aventureira', color: 'from-pink-500 to-rose-600' },
-    { name: 'Julia', role: 'A Conquistadora', color: 'from-emerald-500 to-green-600' },
-    { name: 'Kyle', role: 'O Forasteiro', color: 'from-amber-500 to-orange-600' },
+    { name: 'Vitor', role: 'Explorer', color: 'from-sky-500 to-blue-600' },
+    { name: 'Carina', role: 'Adventurer', color: 'from-pink-500 to-rose-600' },
+    { name: 'Julia', role: 'The Conqueror', color: 'from-emerald-500 to-green-600' },
+    { name: 'Kyle', role: 'The Outsider', color: 'from-amber-500 to-orange-600' },
   ];
 
   const tipBank = {
-    'Chegada em Cusco': 'No primeiro dia em Cusco, o ideal é ir com calma, beber bastante água e evitar esforço excessivo por causa da altitude.',
-    'Explorando Cusco': 'Prove pratos locais em mercados e repare como a cidade mistura base inca com construções coloniais em quase cada rua.',
-    'Cusco e Preparativos': 'Separe roupas em camadas, porque a temperatura pode mudar bastante entre manhã, tarde e noite.',
-    'Trilha Inca, Dia 1': 'Começar num ritmo conservador ajuda muito, porque a trilha recompensa constância mais do que velocidade.',
-    'Trilha Inca, Dia 2': 'O segundo dia costuma ser o mais exigente, então alimentação leve e hidratação fazem muita diferença.',
-    'Trilha Inca, Dia 3': 'Ao longo da trilha, observe as mudanças de vegetação, elas mostram bem como os Andes criam microclimas únicos.',
-    'Machu Picchu e Vale Sagrado': 'Chegar a Machu Picchu depois da trilha torna a experiência ainda mais simbólica e emocional.',
-    'Vale Sagrado': 'Nos vilarejos do Vale Sagrado, vale olhar com calma os tecidos, cerâmicas e produtos artesanais feitos por comunidades locais.',
-    'Lagoa Humantay': 'Saia cedo, leve proteção solar e respeite o ritmo do corpo, porque a altitude pesa mesmo em percursos curtos.',
-    'Ida para Arequipa': 'Arequipa tem uma energia diferente de Cusco, mais urbana, elegante e muito ligada à arquitetura em pedra vulcânica.',
-    'Descobrindo Arequipa': 'O contraste entre o branco das fachadas e os vulcões ao redor deixa a cidade ainda mais bonita no fim da tarde.',
-    'Arequipa e Gastronomia': 'A culinária arequipenha tem personalidade própria, com pratos mais robustos e tradicionais.',
-    'Linhas de Nazca e Oásis': 'O voo sobre Nazca é curto, então vale chegar bem organizado para aproveitar cada minuto da experiência.',
-    'Huacachina e Ida a Lima': 'Em Huacachina, o pôr do sol costuma ser um dos momentos mais marcantes do dia, especialmente no alto das dunas.',
-    'Chegada em Lima': 'Barranco e Miraflores entregam dois lados muito interessantes de Lima, um mais boêmio, outro mais clássico e costeiro.',
-    'Lima Gastronômica': 'Lima é o lugar ideal para fechar a viagem com ceviches, menus degustação e ótimos cafés.',
-    'Retorno para Casa': 'O último dia é perfeito para revisar fotos, anotar memórias e salvar lugares favoritos para uma próxima viagem.',
+    'Arrival in Cusco': 'On your first day in Cusco, take it easy, drink plenty of water, and avoid heavy effort because of altitude.',
+    'Exploring Cusco': 'Try local dishes in markets and notice how the city blends Inca foundations with colonial architecture.',
+    'Cusco and Preparation Day': 'Pack in layers, since temperatures can change a lot between morning, afternoon, and night.',
+    'Inca Trail, Day 1': 'Starting at a conservative pace helps a lot. The trail rewards consistency more than speed.',
+    'Inca Trail, Day 2': 'Day two is usually the toughest, so light food and hydration make a big difference.',
+    'Inca Trail, Day 3': 'Observe changes in vegetation along the trail; they show the Andes’ unique microclimates.',
+    'Machu Picchu and Sacred Valley': 'Reaching Machu Picchu after the trail makes the experience even more symbolic and emotional.',
+    'Sacred Valley': 'In Sacred Valley villages, take your time with textiles, ceramics, and artisan products made by local communities.',
+    'Humantay Lake': 'Leave early, use sun protection, and respect your pace—the altitude matters even on short routes.',
+    'Travel to Arequipa': 'Arequipa has a different energy from Cusco: more urban, elegant, and tied to volcanic-stone architecture.',
+    'Discovering Arequipa': 'The contrast between white facades and surrounding volcanoes is especially beautiful late in the afternoon.',
+    'Arequipa and Gastronomy': 'Arequipa’s cuisine has its own personality, with stronger and more traditional dishes.',
+    'Nazca Lines and Oasis': 'The Nazca flight is short, so arrive organized to enjoy every minute.',
+    'Huacachina and Lima Transfer': 'In Huacachina, sunset is often one of the most memorable moments, especially from the dune tops.',
+    'Arrival in Lima': 'Barranco and Miraflores offer two great sides of Lima: one bohemian, one classic and coastal.',
+    'Gastronomic Lima': 'Lima is ideal for ending the trip with ceviches, tasting menus, and excellent cafés.',
+    'Return Home': 'The last day is perfect for reviewing photos, writing memories, and saving favorite spots for a next trip.',
   };
 
   const handleGenerateTip = async (index, day) => {
     setLoadingTipDay(index);
     await new Promise((resolve) => setTimeout(resolve, 900));
-    setDailyTips((prev) => ({ ...prev, [index]: tipBank[day.title] || 'Curtam o dia com calma e deixem espaço para surpresas boas no caminho.' }));
+    setDailyTips((prev) => ({ ...prev, [index]: tipBank[day.title] || 'Enjoy the day slowly and leave room for good surprises along the way.' }));
     setLoadingTipDay(null);
   };
 
   const handleGeneratePackingList = async () => {
     setIsGeneratingPacking(true);
     await new Promise((resolve) => setTimeout(resolve, 1200));
-    setPackingList(`- Roupas em camadas: segunda pele, fleece, corta-vento e casaco mais quente
-- Camisetas respiráveis e calças confortáveis para trekking
-- Bota ou tênis de trilha já amaciado
-- Meias reforçadas e extras
-- Boné, gorro e luvas leves
-- Óculos de sol e protetor solar
-- Mochila de ataque para os dias de trilha
-- Garrafa de água ou sistema de hidratação
-- Remédios pessoais e itens para altitude
-- Jaqueta impermeável
-- Roupa mais leve para Huacachina e Lima
-- Power bank, documentos e seguro viagem
-- Protetor labial e hidratante
-- Lanches práticos para deslocamentos`);
+    setPackingList(`- Layered clothing: base layer, fleece, windbreaker, and warmer jacket
+- Breathable T-shirts and comfortable trekking pants
+- Broken-in hiking boots or trail shoes
+- Reinforced socks and extras
+- Cap, beanie, and light gloves
+- Sunglasses and sunscreen
+- Daypack for trail days
+- Water bottle or hydration system
+- Personal meds and altitude-related items
+- Waterproof jacket
+- Lighter clothes for Huacachina and Lima
+- Power bank, documents, and travel insurance
+- Lip balm and moisturizer
+- Practical snacks for transfers`);
     setIsGeneratingPacking(false);
   };
 
@@ -376,19 +374,19 @@ export default function App() {
               Peru Trip 2026
             </Badge>
             <h1 className="text-5xl font-black tracking-tight md:text-7xl">
-              Uma jornada pelo Peru,
-              <span className="block text-amber-300">gastronomia, aventura, história e cultura</span>
+              A journey across Peru,
+              <span className="block text-amber-300">food, adventure, history, and culture</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-200 md:text-xl">
-              Cusco, Trilha Inca, Machu Picchu, Vale Sagrado, Arequipa, Nazca, Huacachina e Lima em uma viagem desenhada para viver o Peru por inteiro.
+              Cusco, Inca Trail, Machu Picchu, Sacred Valley, Arequipa, Nazca, Huacachina, and Lima in a trip designed to experience Peru in full.
             </p>
 
             <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4 max-w-3xl">
               {[
-                { label: 'Dias', value: timeLeft.days },
-                { label: 'Horas', value: timeLeft.hours },
-                { label: 'Minutos', value: timeLeft.minutes },
-                { label: 'Segundos', value: timeLeft.seconds },
+                { label: 'Days', value: timeLeft.days },
+                { label: 'Hours', value: timeLeft.hours },
+                { label: 'Minutes', value: timeLeft.minutes },
+                { label: 'Seconds', value: timeLeft.seconds },
               ].map((item) => (
                 <Card key={item.label} className="rounded-3xl border-white/10 bg-white/10 text-white backdrop-blur-md">
                   <CardContent className="p-5 text-center">
@@ -426,10 +424,10 @@ export default function App() {
 
         <section className="mt-16 grid gap-6 md:grid-cols-4">
           {[
-            { icon: Utensils, title: 'Gastronomia', text: 'Da alta cozinha de Lima aos sabores tradicionais do sul peruano.' },
-            { icon: Mountain, title: 'Aventura', text: 'Trilha Inca, altitude, lagoas andinas, deserto e sandboard.' },
-            { icon: Landmark, title: 'História', text: 'Mundo inca, cidades coloniais e mistérios arqueológicos.' },
-            { icon: Sparkles, title: 'Cultura', text: 'Feiras, vilarejos, artesanato, arquitetura e cotidiano local.' },
+            { icon: Utensils, title: 'Gastronomy', text: 'From Lima’s fine dining to the traditional flavors of southern Peru.' },
+            { icon: Mountain, title: 'Adventure', text: 'Inca Trail, altitude, Andean lakes, desert, and sandboarding.' },
+            { icon: Landmark, title: 'History', text: 'Inca world, colonial cities, and archaeological mysteries.' },
+            { icon: Sparkles, title: 'Culture', text: 'Markets, villages, crafts, architecture, and local daily life.' },
           ].map((item) => {
             const Icon = item.icon;
             return (
@@ -447,11 +445,11 @@ export default function App() {
         <section className="mt-16">
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.25em] text-emerald-300">Roteiro</p>
-              <h2 className="mt-2 text-3xl font-black md:text-4xl">Dias, cidades e experiências</h2>
+              <p className="text-sm uppercase tracking-[0.25em] text-emerald-300">Itinerary</p>
+              <h2 className="mt-2 text-3xl font-black md:text-4xl">Days, cities, and experiences</h2>
             </div>
             <Badge className="w-fit rounded-full border border-amber-300/20 bg-amber-400/10 px-4 py-2 text-amber-200">
-              22 de agosto a 07 de setembro
+              August 22 to September 07
             </Badge>
           </div>
 
@@ -481,7 +479,7 @@ export default function App() {
                       >
                         <div className="flex items-start gap-4 md:gap-6">
                           <div className="min-w-[76px] rounded-2xl bg-white/10 px-3 py-3 text-center">
-                            <div className="text-[10px] uppercase tracking-[0.2em] text-emerald-300">Dia {index + 1}</div>
+                            <div className="text-[10px] uppercase tracking-[0.2em] text-emerald-300">Day {index + 1}</div>
                             <div className="mt-1 text-lg font-black">{day.date}</div>
                           </div>
 
@@ -527,14 +525,14 @@ export default function App() {
                                     className="rounded-full bg-emerald-500 text-white hover:bg-emerald-400"
                                   >
                                     <Sparkles className="mr-2 h-4 w-4" />
-                                    Ver dica do dia
+                                    Show day tip
                                   </Button>
                                 )}
 
                                 {loadingTipDay === index && (
                                   <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-neutral-200">
                                     <Loader2 className="h-4 w-4 animate-spin" />
-                                    Buscando uma dica especial...
+                                    Looking up a special tip...
                                   </div>
                                 )}
 
@@ -542,7 +540,7 @@ export default function App() {
                                   <div className="mt-4 rounded-2xl border border-emerald-300/20 bg-emerald-400/10 p-4 text-sm leading-7 text-emerald-50">
                                     <div className="mb-2 flex items-center gap-2 font-semibold text-amber-200">
                                       <Sparkles className="h-4 w-4" />
-                                      Dica do dia
+                                      Day tip
                                     </div>
                                     <p>{dailyTips[index]}</p>
                                   </div>
@@ -564,17 +562,17 @@ export default function App() {
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.25em] text-amber-200">Live Like Bourdain</p>
-              <h2 className="mt-2 text-3xl font-black md:text-4xl">Comer o Peru com alma, curiosidade e personalidade</h2>
+              <h2 className="mt-2 text-3xl font-black md:text-4xl">Eat Peru with soul, curiosity, and personality</h2>
             </div>
             <p className="max-w-2xl text-sm leading-7 text-neutral-300 md:text-base">
-              Esta seção reúne lugares que conversam diretamente com a passagem do Anthony Bourdain pelo Peru, além de experiências gastronômicas com a mesma energia, lugares com identidade, história, técnica, exagero na medida certa e muita verdade no prato.
+              This section brings together places directly connected to Anthony Bourdain’s time in Peru, plus experiences with a similar energy: identity, history, technique, and honest food.
             </p>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {bourdainSpots.map((spot) => {
               const Icon = spot.icon;
-              const featured = spot.category === 'Pegadas do Tony';
+              const featured = spot.category === 'Tony Footsteps';
 
               return (
                 <Card
@@ -596,7 +594,7 @@ export default function App() {
                     <p className="mt-4 text-sm leading-7 text-neutral-200">{spot.vibe}</p>
 
                     <div className="mt-5 rounded-2xl bg-black/20 p-4 text-sm leading-7 text-neutral-300">
-                      <span className="font-semibold text-white">Por que entrar no roteiro:</span> {spot.why}
+                      <span className="font-semibold text-white">Why it belongs in your itinerary:</span> {spot.why}
                     </div>
 
                     <a
@@ -605,7 +603,7 @@ export default function App() {
                       rel="noreferrer"
                       className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10"
                     >
-                      Ver local
+                      Open place
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </CardContent>
@@ -618,10 +616,10 @@ export default function App() {
         <section className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <Card className="rounded-3xl border-amber-300/20 bg-amber-400/10 text-white">
             <CardContent className="p-8">
-              <p className="text-sm uppercase tracking-[0.25em] text-amber-200">Bagagem</p>
-              <h3 className="mt-3 text-3xl font-black">Lista inteligente para microclimas</h3>
+              <p className="text-sm uppercase tracking-[0.25em] text-amber-200">Packing</p>
+              <h3 className="mt-3 text-3xl font-black">Smart list for microclimates</h3>
               <p className="mt-4 max-w-2xl text-neutral-200 leading-7">
-                Da altitude de Cusco ao deserto de Huacachina, este roteiro passa por cenários muito diferentes. Gere uma sugestão rápida para montar a mala com mais segurança.
+                From Cusco’s altitude to Huacachina’s desert, this route crosses very different environments. Generate a quick suggestion to pack with confidence.
               </p>
 
               {!packingList ? (
@@ -631,7 +629,7 @@ export default function App() {
                   className="mt-6 rounded-full bg-amber-500 text-neutral-950 hover:bg-amber-400"
                 >
                   {isGeneratingPacking ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-                  {isGeneratingPacking ? 'Gerando lista...' : 'Gerar lista de bagagem'}
+                  {isGeneratingPacking ? 'Generating list...' : 'Generate packing list'}
                 </Button>
               ) : (
                 <div className="mt-6 rounded-2xl bg-black/20 p-5 text-sm leading-7 text-neutral-100 whitespace-pre-wrap">
@@ -644,15 +642,15 @@ export default function App() {
           <Card className="rounded-3xl border-white/10 bg-white/5 text-white overflow-hidden">
             <div className="h-full">
               <img
-                src="https://images.unsplash.com/photo-1520613536365-9f32f18b7d44?auto=format&fit=crop&w=1200&q=80"
-                alt="Paisagem andina do Peru"
+                src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Laguna_Humantay%2C_Per%C3%BA.jpg"
+                alt="Humantay Lake in Peru"
                 className="h-64 w-full object-cover"
               />
               <CardContent className="p-8">
-                <p className="text-sm uppercase tracking-[0.25em] text-emerald-300">Essência da viagem</p>
-                <h3 className="mt-3 text-2xl font-black">Uma rota pensada para sentir o Peru</h3>
+                <p className="text-sm uppercase tracking-[0.25em] text-emerald-300">Trip essence</p>
+                <h3 className="mt-3 text-2xl font-black">A route designed to truly feel Peru</h3>
                 <p className="mt-4 text-neutral-300 leading-7">
-                  O roteiro combina o peso histórico de Cusco, a grandiosidade da Trilha Inca, a autenticidade do Vale Sagrado, a sofisticação de Arequipa, o mistério de Nazca, a aventura em Huacachina e o fechamento gastronômico em Lima.
+                  This route combines the historical weight of Cusco, the grandeur of the Inca Trail, the authenticity of the Sacred Valley, the sophistication of Arequipa, Nazca’s mystery, Huacachina’s adventure, and a gastronomic finale in Lima.
                 </p>
               </CardContent>
             </div>
@@ -663,17 +661,17 @@ export default function App() {
           <Card className="rounded-[2rem] border-white/10 bg-gradient-to-br from-neutral-900 to-neutral-950 text-white overflow-hidden">
             <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
               <div className="p-8 md:p-10">
-                <p className="text-sm uppercase tracking-[0.25em] text-amber-200">Fechamento</p>
-                <h2 className="mt-3 text-3xl font-black md:text-4xl">Uma viagem para lembrar por muitos anos</h2>
+                <p className="text-sm uppercase tracking-[0.25em] text-amber-200">Wrap-up</p>
+                <h2 className="mt-3 text-3xl font-black md:text-4xl">A trip to remember for many years</h2>
                 <p className="mt-5 max-w-2xl text-neutral-300 leading-8">
-                  Não é só um roteiro, é uma travessia entre cidades históricas, montanhas, desertos, sabores e encontros. Um site para guardar expectativas agora, e memórias depois.
+                  This is more than an itinerary. It is a crossing through historic cities, mountains, deserts, flavors, and encounters. A site to store expectations now—and memories later.
                 </p>
               </div>
               <div className="flex items-end justify-center bg-white/5 p-8">
                 <div className="text-center">
                   <Mountain className="mx-auto h-14 w-14 text-amber-300" />
                   <p className="mt-4 text-lg font-semibold">Peru Trip 2026</p>
-                  <p className="mt-2 text-sm text-neutral-400">Vitor, Carina, Julia e Kyle</p>
+                  <p className="mt-2 text-sm text-neutral-400">Vitor, Carina, Julia and Kyle</p>
                 </div>
               </div>
             </div>
